@@ -17,7 +17,7 @@
 
 <h2>Blocking & Non-Blocking</h2>  
 
-<h4>제어권이 어디로 가는지에 대한 관점</h4>
+<h4>"제어권"이 어디로 가는지에 대한 관점</h4>
 
 
 <h5>Blocking</h5>
