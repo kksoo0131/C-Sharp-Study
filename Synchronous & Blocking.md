@@ -3,12 +3,12 @@
 <h4>어떤 "흐름"으로 처리 할 것인가에 대한 관점</h4>
 
 
-Synchronous 동기
+<h5>Synchronous 동기</h5>
 	
 	함수 A가 함수 B의 리턴을 받는다.
 
 
-Asynchronous 비동기
+<h5>Asynchronous 비동기</h5>
 
 	함수 A는 함수 B의 작업 완료 여부를 신경 쓰지 않는다
 	함수 B를 호출 할때 콜백 함수를 전달해서 함수 B의 작업이 완료되면 콜백 함수를 실행 
@@ -20,12 +20,12 @@ Asynchronous 비동기
 <h4>제어권이 어디로 가는지에 대한 관점</h4>
 
 
-Blocking
+<h5>Blocking</h5>
 
 	함수 A가 함수 B에게 제어권을 넘겨준다.
 	제어권을 넘겨주었기때문에 함수 A는 함수 B가 완료 될때까지 대기한다.
 
-Non-Blocking
+<h5>Non-Blocking</h5>
 		
 		함수 A가 함수 B를 호출해도 제어권은 함수 A가 그대로 가지고있는다.
 		함수 A와 함수 B가 둘다 실행된다
