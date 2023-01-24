@@ -71,7 +71,7 @@
 
 <h2>Event</h2>  
 
-<h4></h4>
+<h4>event를 생성하고 이벤트를 구독한 객체에게 이벤트 발생을 알려주는 Observer Pattern</h4>
 
 
 <h5>Ex )</h5>
@@ -105,7 +105,8 @@
 	static void Main(string[] args)
 	{
 		InputManager inputManager = new InputManager()
-		// event를 수신받기로 하고 event를 받았을때 어떤 함수를 실행할지 정해준다.
+		
+		// event를 구독하고 어떤 함수를 실행할지 정해준다.
 		// 함수의 형식은 event를 만들때 쓰인 delegate형식으로 해야한다.
 		inputManager.InputKey += OnInputTest;
 
@@ -117,4 +118,9 @@
     }
     
 ```
-delegate와 event의 차이점
+<h2>delegate와 event의 차이점</h2>  
+
+<h4>delegate는 마음대로 직접 호출 할 수 있지만, 
+event는 구독해서 알림을 받는 것 이외에 직접 호출은 할 수 없다.</h4>
+
+
