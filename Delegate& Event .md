@@ -6,27 +6,27 @@
 <h5>Ex 1) delegate</h5>
 	
 ```cs
-    //delegate -> 함수 자체를 인자로 넘겨주는 형식(type)
-    //return = int, 인자 = void인 delegate 형식
-    delegate int OnClicked();
+//delegate -> 함수 자체를 인자로 넘겨주는 형식(type)
+//return = int, 인자 = void인 delegate 형식
+delegate int OnClicked();
 
-    static void ButtonPressed(Onclicked clicked)
-    {
-      Console.WriteLine("1");
-      clicked();
-    }
+static void ButtonPressed(OnClicked clicked)
+{
+Console.WriteLine("1");
+clicked();
+}
 
-    static int TestDelegate()
-    {
-      Console.WriteLine("2");
-      return 0;
-    }
-    
-    static void Main(string[] args)
-    {
-      Console.WriteLine("0");
-      ButtonPressed(TestDelegate);
-    }
+static int TestDelegate()
+{
+Console.WriteLine("2");
+return 0;
+}
+
+static void Main(string[] args)
+{
+Console.WriteLine("0");
+ButtonPressed(TestDelegate);
+}
 ```
   
   
@@ -35,38 +35,36 @@
 <h5>Ex 2) delegate chain: 하나의 델레게이트에 여러개의 함수를 동시에 넘겨줄수있음</h5>
 	
 ```cs
+//delegate -> 함수 자체를 인자로 넘겨주는 형식(type)
+//return = int, 인자 = void인 delegate 형식
+delegate int OnClicked();
+static void ButtonPressed(OnClicked onclicked)
+{
+    Console.WriteLine("1");
+    onclicked();
+}
 
-    //delegate -> 함수 자체를 인자로 넘겨주는 형식(type)
-    //return = int, 인자 = void인 delegate 형식
-    delegate int OnClicked();
+static int TestDelegate()
+{
+    Console.WriteLine("2");
+    return 0;
+}
 
-    static void ButtonPressed(Onclicked clicked)
-    {
-	Console.WriteLine("1");
-	clicked();
-    }
+static int TestDelegate2()
+{
+    Console.WriteLine("3");
+    return 0;
+}
 
-    static int TestDelegate()
-    {
-	Console.WriteLine("2");
-	return 0;
-    }
-    
-    static int TestDelegate2()
-    {
-	Console.WriteLine("3");
-	return 0;
-    }
-    
-    static void Main(string[] args)
-    {
-	Console.WriteLine("0");
-	Onclicked clicked = new Onclicked(TestDelegate);
-	clicked() += TestDelegate2;
-	// TestDelegate 함수를 실행한 이후에 TestDelegate2 함수가 실행된다.
+static void Main(string[] args)
+{
+    Console.WriteLine("0");
+    OnClicked clicked = new OnClicked(TestDelegate);
+    clicked += TestDelegate2;
+    // TestDelegate 함수를 실행한 이후에 TestDelegate2 함수가 실행된다.
 
-	ButtonPressed(clicked);
-    }
+    ButtonPressed(clicked);
+}
 ```
 
 <h2>Event</h2>  
@@ -77,46 +75,47 @@
 <h5>Ex )</h5>
 	
 ```cs
-    class InputManager
-    {
-    	public delegate void OnInputKey();
+class InputManager
+{
+	public delegate void OnInputKey();
 	//delegate에 event를 붙혀서 만들어준다.
-	public event OnInputKey InputKey();
-	
+	public event OnInputKey InputKey;
+
 	public void Update()
 	{
-		if(Console.KeyAvailable == false)
+		if (Console.KeyAvailable == false)
 			return;
-		Console.KeyInfo info = Console.ReadKey();
+		ConsoleKeyInfo info = Console.ReadKey();
 		if (info.Key == ConsoleKey.A)
 		{
 			InputKey();
 			// event를 수신 받기로한 객체들에게 알려준다.
 		}
 	}
-    }
-    
-    class Program
-    {
-    	void OnInputTest()
+}
+
+class Program
+{
+	static void OnInputTest()
 	{
 		Console.WriteLine("Input Receive");
 	}
 	static void Main(string[] args)
 	{
-		InputManager inputManager = new InputManager()
-		
+		InputManager inputManager = new InputManager();
+
 		// event를 구독하고 어떤 함수를 실행할지 정해준다.
 		// 함수의 형식은 event를 만들때 쓰인 delegate형식으로 해야한다.
 		inputManager.InputKey += OnInputTest;
 
-		while(true)
+		while (true)
 		{
 			inputManager.Update();
 		}
 	}
-    }
-    
+	
+}
+
 ```
 <h2>delegate와 event의 차이점</h2>  
 
