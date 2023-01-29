@@ -19,6 +19,8 @@
     Session에서 RecvBuffer, SendBuffer를 통해서 서버와의 Send, Recv를 처리한다.
     
     
+    데이터를 송 수신 할때 Packet Serialization 해서 패킷을 주고 받게 된다.
+    
     
 
 <h5>1. Listener</h5>
