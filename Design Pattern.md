@@ -4,7 +4,8 @@
 <h4>Command Pattern</h4>
 
     메소드를 호출할때 커맨드를 거쳐서 호출하는 방법  
-    Customer는 Food를 알고있다면
+    
+    Customer는 Food를 알고 있다면 주문을 할수있다.
     
 ```cs
     // Command
