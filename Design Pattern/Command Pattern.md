@@ -1,17 +1,14 @@
-<h2>Degin Pattern</h2>  
-
-
-<h4>Command Pattern</h4>
+<h2>Command Pattern</h2>
 
     메소드를 호출할때 커맨드를 거쳐서 호출하는 방법  
     
     Customer는 Food를 알고 있다면 주문을 할수있다.
     
 ```cs
-    // Command
+    // Command 인터페이스 생성
     public interface Food { public abstract void cook(); }
 
-    // 기능들을 Command 인터페이스를 이용해 클래스로 만듬
+    // 기능들을 Command 인터페이스를 상속해 클래스로 생성
     public class Gambas : Food
     {
         public void cook() { Console.WriteLine("Gambas"); }
@@ -52,7 +49,7 @@
             second_customer.OrderCompleted();
         }
 ```
-    
+
      
    
     
