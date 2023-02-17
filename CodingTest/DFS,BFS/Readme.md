@@ -75,3 +75,73 @@ class Program
 }
 
 ```
+
+
+<h2> BFS (Breadth First Search)</h2>
+
+너비 우선 탐색이라는 의미로 가까운 노드부터 탐색하는 알고리즘이다.
+선입선출 방식인 큐 자료구조를 이용하는게 정석으로, 인접한 노드를 반복적으로 큐에 넣는다. O(N)의 시간복잡도.
+
+
+
+<h4>동작 과정</h4>
+
+1. 탐색 시작 노드를 큐에 삽입하고 방문 처리를 한다.
+2. 큐에서 노드를 꺼내 해당 노드의 인접 노드 중에서 방문하지 않은 노드를 모두 큐에 삽입하고 방문처리를 한다.
+3. 2번의 과정을 반복한다.
+
+
+```cs
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void bfs(List<List<int>> graph, int v, List<bool> visited)
+    {
+        Queue<int> queue = new Queue<int>();
+        queue.Enqueue(v);
+        visited[v] = true;
+
+        while (queue.Count > 0)
+        {
+            v = queue.Dequeue();
+            Console.WriteLine($"{v}");
+
+            foreach (int i in graph[v])
+            {
+                if (visited[i] == false)
+                {
+                    queue.Enqueue(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
+
+    public static void Main(string[] args)
+    {
+        List<List<int>> graph = new List<List<int>>()
+        {
+            new List<int> { },
+            new List<int> { 2,3,8},
+            new List<int> { 1, 7},
+            new List<int> { 1,4,5},
+            new List<int> { 3,5},
+            new List<int> { 3,4},
+            new List<int> { 7},
+            new List<int> { 2,6,8},
+            new List<int> { 1,7}
+        };
+
+        List<bool> visited = new List<bool>();
+        for (int i = 0; i < 9; i++)
+        {
+            visited.Add(false);
+        }
+
+        bfs(graph, 1, visited);
+    }
+}
+```
