@@ -23,24 +23,25 @@ class Program
 {
     public static void Main(string[] args)
     {
-        decimal[] array = Enumerable.Repeat<decimal>(0, 100).ToArray();
-        decimal result = fibo(99, array);
-        Console.WriteLine($"{result}");
-    }
+        int N = int.Parse(Console.ReadLine());
+        int[] array = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
 
-    static decimal fibo(int x, decimal[] array)
-    {
-        if (x ==1 || x== 2)
-            return 1;
+        // 창고가 n개 있을때의 최대 식량을 저장
+        int[] dptable = Enumerable.Repeat(0, N).ToArray();
 
-        if (array[x] != 0)
-            return array[x];
+        // n-2가 점화식에 포함되기때문에 인덱스 0,1은 직접 입력하고 2부터 반복문 시작.
+        dptable[0] = array[0];
+        dptable[1] = Math.Max(array[0], array[1]);
 
-        array[x] = fibo(x - 1, array) + fibo(x - 2, array);
-        return array[x];
-    }
-    
+        for (int i =2; i < N; i++)
+        {
+            dptable[i] = Math.Max(dptable[i - 1], dptable[i - 2] + array[i]);
+        }
+
+        Console.WriteLine($"{dptable[N-1]}");
+    }  
 }
+
 ```
 
 위의 다이나믹 프로그래밍을 적용했을 때의 피보나치 수열 알고리즘의 시간 복잡도는 O(N)이다.
