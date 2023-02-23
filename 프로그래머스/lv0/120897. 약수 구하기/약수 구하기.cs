@@ -1,16 +1,8 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 public class Solution {
-    public int[] solution(int n) {
-        List<int> answer = new List<int>();    
-        
-        for (int i =0 ; i <n; i++){
-            if(n % (i+1) == 0){
-                answer.Add(i+1);
-            }
-        }
-       
-        return answer.ToArray();
+    public int[] solution(int n) {      
+        return Enumerable.Range(1,n).Where(x => n % x ==0 ).ToArray();
     }
 }
