@@ -3,13 +3,7 @@ using System.Linq;
 
 public class Solution {
     public string solution(string cipher, int code) {
-        string answer = "";
-        
-        for (int i = code-1; i < cipher.Length; i++){
-            
-            if ((i % code == code-1) )
-                answer += cipher[i].ToString();
-        }
-        return answer;
+        // string.Where(c,i) 는 x로 char를 i로 index를 가져온다.
+        return String.Concat(cipher.Where( (c,i) => i % code == code-1));
     }
 }
