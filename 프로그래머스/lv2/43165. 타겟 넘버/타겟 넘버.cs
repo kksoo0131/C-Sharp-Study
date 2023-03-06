@@ -4,6 +4,7 @@ public class Solution {
     public int[] numbers;
     public int answer;  
     public int target;
+    
     public int solution(int[] numbers, int target) {
         this.numbers = numbers;
         this.answer =0;
