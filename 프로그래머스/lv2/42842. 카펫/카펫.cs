@@ -4,16 +4,23 @@ public class Solution {
     public int[] solution(int brown, int yellow) {
         int[] answer = new int[2];
         int total = brown + yellow;
-        int max_width = total/3;
+        answer[0] = total/3;
         
-        for(int i=3 ; i <=max_width; i++){
-            for(int j =3; j<=i; j++){
-                if (brown == (i + j -2)*2 && yellow == (i-2)*(j-2)){
-                    return new int[]{i,j};
-                }
-                    
+        while(true)
+        {
+            if (total % answer[0] == 0)
+            {
+                answer[1] = total / answer[0];
+                if ((answer[0] - 2) * (answer[1] - 2) == yellow &&
+                    (answer[0] + answer[1] -2) *2 == brown)
+                    break;
             }
+            
+            answer[0]--;
+                
         }
+        
+        
         return answer;
     }
 }
