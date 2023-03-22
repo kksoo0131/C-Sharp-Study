@@ -5,17 +5,12 @@ public class Solution {
     public int solution(string s) {
         int answer = 0;
         for(int i=0; i < s.Length; i++){
-            s = turn(s);
+            char temp = s[0]; 
+            s = s.Substring(1) + temp.ToString();
             answer += check(s);
         }
         
         return answer;
-    }
-    
-    string turn (string s){
-        char temp = s[0]; 
-        s = s.Substring(1) + temp.ToString();
-        return s;
     }
 
     int check (string s){
