@@ -1,7 +1,35 @@
 # 자주 쓰이는 클래스와 메소드들
+1. 스트링 string name = "str";
 
-1. 벡터 vector<T> name(size);
   ``` cpp
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    string str = "Mystr"; // 생성
+  
+    cin >> str; // 공백 전 까지의 문자열만 입력받는다 
+    
+    getline(cin, str); // \n 전까지의 문자열을 입력받는다. 
+    
+    str[i] // i위치의 문자 반환
+    
+    str.length() // 문자열 길이 반환
+    
+    str.find(str2) // 문자열 str2가 str에 포함되어 있는지 확인. 해당 부분의 첫번째 index반환
+    
+    str.find(str2, n)// 인덱스 n부터 str.find(str2)를 실행
+    
+    str.substr(n,k) // n번째의 index부터 k개의 문자를 부분문자열로 반환
+    
+  ```
+  
+2. 벡터 vector<T> name(size);
+  
+  ``` cpp
+    #include <vector>
+    using namespace std;
+  
     vector<int> v1 = {1,2,3}; // 생성
   
     v.begin(); // 시작 주소값
@@ -24,3 +52,5 @@
   
     v.size(); // 벡터의 크기 반환
   ```
+
+ 
