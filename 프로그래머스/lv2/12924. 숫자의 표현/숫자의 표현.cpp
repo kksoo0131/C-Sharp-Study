@@ -3,7 +3,7 @@
 using namespace std;
 
 int solution(int n) {
-    // 부분합 사용
+    // 부분합, 투포인터
     int answer = 0;
     vector<int> hap(n+1);
     hap[0] = 0; 
