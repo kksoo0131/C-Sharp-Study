@@ -53,4 +53,36 @@
     v.size(); // 벡터의 크기 반환
   ```
 
+ 3. 맵 map<key,value> map1;
  
+ ```cpp
+ #include <map>
+ 
+ map<stirng, int> m1; // 생성 <key, value> 키 값은 중복 x
+ 
+ m1.insert({"string", 1}); // 삽입 이미가지고 있는 key는 무시
+ 
+ m1["string"] // key값으로 인덱스 접근, 삽입 (새로운 키를 넣으면 value는 0)
+ 
+ m1["string"] = 2 // value 값을 변경
+ 
+ m1["string"]++; // value값을 ++
+ 
+ for(pair<string, int> p : m1){
+  cout << p.first << " " << p.second << endl;
+ } // 전체 순회
+ 
+ m1.find("string2") // key를 찾아 접근자를 반환 없을경우 end()반환
+ 
+ m1.erase("string"); // 원하는 key값을 가진 노드 삭제
+ 
+ map.erase(map.begin() + i); // i 위치의 노드를 삭제
+ 
+ map.erase(map.begin()+i, map.begin()+i+k) // i위치부터 k개의 노드를 삭제
+ 
+ map.clear() // 비우기
+ 
+ map.size() // map의 크기
+ 
+ 
+ ```
