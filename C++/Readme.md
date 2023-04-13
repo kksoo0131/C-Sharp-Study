@@ -86,3 +86,25 @@
  
  
  ```
+ 
+ 4. std::max_element(v.begin(), v.end())
+ 
+ - 주어진 범위에서 가장큰 요소를 가리키는 반복자를 반환
+ 
+ ```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm> // std::max_element
+
+int main()
+{
+    std::vector<int> v = {3, 7, 2, 5, 8, 4};
+
+    auto max_iter = std::max_element(v.begin(), v.end()); // 가장 큰 요소를 가리키는 반복자 반환
+    int max_value = *max_iter; // 가장 큰 요소의 값
+
+    std::cout << "가장 큰 수: " << max_value << '\n';
+
+    return 0;
+}
+ ```
