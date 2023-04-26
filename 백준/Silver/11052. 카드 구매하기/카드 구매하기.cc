@@ -3,8 +3,8 @@
 using namespace std;
 
 int n;
-unsigned long long arr[10001];
-unsigned long long dp[10001];
+int arr[10001];
+int dp[10001];
 
 
 // 최대한 비싸게 N개의 카드를 사는 방법
@@ -21,11 +21,11 @@ unsigned long long dp[10001];
 // 만약 12개를 만들떄 5 x 2 + 2 x1보다
 // 5 x 1 + 4 x1 + 3 x1 이 더큰걸 고려해야함 그럼 위의 식으론 안됨.
 
-unsigned long long func(int n) {
+int func(int n) {
 	if (dp[n] == 0) {
 		for (int i = 1; i <= n; i++) {
-			unsigned long long temp = arr[i];
-			unsigned long long R = n - i;
+			int temp = arr[i];
+			int R = n - i;
 
 			if (R)
 				R = func(R);
