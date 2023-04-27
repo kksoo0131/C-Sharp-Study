@@ -12,22 +12,20 @@
         수행된 비동기 작업들을 Queue와 ThreadPool을 사용하여 오버헤드 없이 효율적으로 처리한다.
         
         (오버헤드 - 작업을 처리하는 데 들어가는 추가적인 비용이나 시간)
-htons()
-	htonl()
-	closesocket()
-	joinalbe()
-	join()
-	C++ 람다식
-	DWORD
 	
 	
-	
-	struct linger
-	SD_BOTH
-	SOL_SOCKET
-	SO_LINGER
-	shutdown()
-	setsockopt()
+		htons()
+		htonl()
+		closesocket()
+		joinalbe()
+		join()
+		C++ 람다식
+		struct linger
+		SD_BOTH
+		SOL_SOCKET
+		SO_LINGER
+		shutdown()
+		setsockopt()
 
 - WinSock2.h
 
