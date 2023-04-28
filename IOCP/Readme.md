@@ -13,22 +13,11 @@
         
         (오버헤드 - 작업을 처리하는 데 들어가는 추가적인 비용이나 시간)
 	
-	
-		closesocket()
-		joinalbe()
-		join()
-		C++ 람다식
-		struct linger
-		SD_BOTH
-		SOL_SOCKET
-		SO_LINGER
-		shutdown()
-		setsockopt()
 
-[Winsock2.h](https://github.com/kksoo0131/Study/blob/main/IOCP/Winscock2.md)
+[Winsock2.h](https://github.com/kksoo0131/Study/blob/main/IOCP/Winscock2.md), [Windows.h](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows.md), [std::thread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread.md)
 
-[Windows.h](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows.md)
 
-[std::thread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread.md)
+
+
       
-[에러 코드 관련]()
+[에러 코드 관련](https://github.com/kksoo0131/Study/blob/main/IOCP/Error.md)
