@@ -1,5 +1,6 @@
 -std::thread
 
+[이전페이지](https://github.com/kksoo0131/Study/blob/main/IOCP/Readme.md)
 ```cpp
 // joinable() 스레드 객체의 상태를 확인하는 함수, join()함수를 호출 할 수 있는지 여부를 반환 할수없다면 true
 
