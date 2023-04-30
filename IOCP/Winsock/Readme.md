@@ -2,6 +2,13 @@
 #pragma comment(lib, "ws2_32")
 #include <winsock2.h>
 #include <Ws2tcpip.h>
+
+class IOCP{
+  WSADATA _wsadata;
+  SOCKET _listenSocket = INVALID_SOCKET;
+  SOCKADDR_IN _serverAddr;
+};
+
 ```
 
 
@@ -9,4 +16,6 @@
 
 [소켓 생성](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/Winsock%20%EC%86%8C%EC%BC%93%20%EC%83%9D%EC%84%B1.cpp)
 
-[바인드](https://github.com/kksoo0131/Study/new/main/IOCP/Winsock)
+[BIND](https://github.com/kksoo0131/Study/new/main/IOCP/Winsock)
+
+[LISTEN](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/LISTESN.cpp)
