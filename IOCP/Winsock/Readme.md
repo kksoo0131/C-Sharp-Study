@@ -16,6 +16,6 @@ class IOCP{
 
 [소켓 생성](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/Winsock%20%EC%86%8C%EC%BC%93%20%EC%83%9D%EC%84%B1.cpp)
 
-[BIND](https://github.com/kksoo0131/Study/new/main/IOCP/Winsock)
+[BIND](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/BIND.cpp)
 
 [LISTEN](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/LISTESN.cpp)
