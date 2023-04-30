@@ -1,3 +1,4 @@
+```cpp
 HANDLE CreateIoCompletionPort(         // IOCP 핸들(I/O 완료 포트)를 생성하고, ICOP 핸들과 파일 핸들을 연결
   HANDLE    FileHandle,                // I/O를 수행할 파일 핸들
   HANDLE    ExistingCompletionPort,    // 기존 IOCP 핸들 (NULL이면 새 IOCP 생성)
@@ -17,3 +18,5 @@ BOOL WINAPI GetQueuedCompletionStatus(     //IOCP 핸들에서 대기중인 I/O 
 //ULONG_PTR 부호 없는 정수형 데이터 타입으로, 64비트에서는 8바이트 크기를 가지며, 32비트에서는 4바이트 크기를 가집니다.
 //PULONG_PTR ULONG_PTR의 포인터
 //DWORD 32비트와 64비트 플랫폼 간의 호환성을 유지하는 4바이트 자료형
+```
+
