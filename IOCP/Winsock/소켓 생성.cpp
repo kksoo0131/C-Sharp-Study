@@ -1,4 +1,5 @@
 #include <winsock2.h>
+
 // winsock2.h에 포함
 SOCKET WSASocket(                     //소켓 객체 생성
   int                af,              //주소체계 AF_INET, AF_INET6
