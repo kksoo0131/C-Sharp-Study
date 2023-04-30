@@ -3,6 +3,8 @@
 
 [라이브러리 초기화](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%20%EC%B4%88%EA%B8%B0%ED%99%94.cpp)
 
+[주소 설정](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EC%A3%BC%EC%86%8C%20%EC%84%A4%EC%A0%95.cpp)
+
 [소켓 생성](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EC%86%8C%EC%BC%93%20%EC%83%9D%EC%84%B1.cpp)
 
 [BIND](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/BIND.cpp)
@@ -12,12 +14,6 @@
 [클라이언트 소켓 생성](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%20%EC%86%8C%EC%BC%93%20%EC%83%9D%EC%84%B1.cpp)
 
 ```cpp
-struct sockaddr_in {
-    short   sin_family;           // 주소체계 (주로 AF_INET)
-    u_short sin_port;           // 16비트 TCP/UDP 포트 번호
-    struct  in_addr sin_addr;    // 32비트 IP 주소
-    char    sin_zero[8];           // 사용되지 않음
-};
 
 int WSARecv(                                              // 비동기 IO recv
   SOCKET                             s,                   // 소켓 핸들(소켓의 유일한 식별자)
@@ -40,11 +36,6 @@ int WSASend(                                              // 비동기 IO send
 );
 
 //WSAOVERLAPPED는 비동기 소켓 입출력 작업에서 사용되는 구조체, 입출력 작업을 지시하고 작업이 완료될 때 정보를 제공.
-
-//htons() unsigned short 
-//htonl() unsigned long
-//다양한 플랫폼과 네트워크 환경에서 호환성을 유지하기 위해서 Big-endian으로 변경해준다.
-//대부분의 네트워크 장비들은 Big-endian방식을 사용하고, 일반적인 컴퓨팅 환경은 Little-endian방식을 사용한다.
 
 //closesocket() 소켓을 닫는 함수, 해당 소켓이 사용 중이던 리소스가 반환되고, 모든 연결도 끊어진다.
 //소켓을 닫지 않아 소켓이 계속해서 포트를 점유하고 있게되면, 다른 소켓이 같은 포트를 사용하지 못하게되고, 메모리 누수가 발생할수 있어
