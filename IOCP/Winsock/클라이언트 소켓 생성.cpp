@@ -11,6 +11,7 @@ struct OverlappedEx{
   char _szBuf[MAX_SOCKBUF];
   IOOperation _eOperation;
 };
+//WSAOVERLAPPED는 비동기 소켓 입출력 작업에서 사용되는 구조체, 입출력 작업을 지시하고 작업이 완료될 때 정보를 제공.
 
 struct ClientInfo{
   SOCKET _socketClient;
