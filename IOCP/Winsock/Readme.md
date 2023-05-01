@@ -14,6 +14,7 @@
 
 [비어있는 클라이언트 소켓 반환](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EB%B9%84%EC%96%B4%EC%9E%88%EB%8A%94%20%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%20%EC%86%8C%EC%BC%93%20%EB%B0%98%ED%99%98.cpp)
 
+[accept()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/accept().cpp)
 ```cpp
 
 int WSARecv(                                              // 비동기 IO recv
