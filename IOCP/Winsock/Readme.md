@@ -15,17 +15,9 @@
 [비어있는 클라이언트 소켓 반환](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EB%B9%84%EC%96%B4%EC%9E%88%EB%8A%94%20%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%20%EC%86%8C%EC%BC%93%20%EB%B0%98%ED%99%98.cpp)
 
 [accept()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/accept().cpp)
-```cpp
 
-int WSARecv(                                              // 비동기 IO recv
-  SOCKET                             s,                   // 소켓 핸들(소켓의 유일한 식별자)
-  LPWSABUF                           lpBuffers,           // 버퍼 배열
-  DWORD                              dwBufferCount,       // 버퍼 배열의 원소 개수
-  LPDWORD                            lpNumberOfBytesRecvd,// 받을 데이터의 크기
-  LPDWORD                            lpFlags,             // 옵션을 지정
-  LPWSAOVERLAPPED                    lpOverlapped,        // 비동기I/O를 위한 OVERLAPPED구조체 작업 정보를 저장
-  LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine  // 비동기I/O작업 완료 후 호출된 콜백 함수 (NULL인경우 블로킹)
-);
+[BindRecv()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/BindRecv().cpp)
+```cpp
 
 int WSASend(                                              // 비동기 IO send
   SOCKET                             s,                   // 소켓 핸들(소켓의 유일한 식별자)
