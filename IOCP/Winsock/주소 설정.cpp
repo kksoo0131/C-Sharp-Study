@@ -5,8 +5,9 @@ struct sockaddr_in {
     char    sin_zero[8];           // 사용되지 않음
 };
 
-void ServerAddrSetting(int BindPort){
-  sockaddr_in _serverAddr;
+sockaddr_in _serverAddr;
+
+void ServerAddrSetting(int BindPort){  
   _serverAddr.sin_family = AF_INET;
   _serverAddr.sin_port = htons(BindPort);
   _serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
