@@ -1,6 +1,7 @@
 [IOCP 핸들 생성](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows/IOCP%20%ED%95%B8%EB%93%A4%20%EC%83%9D%EC%84%B1.cpp)
 
 
+
 ```cpp
 BOOL WINAPI GetQueuedCompletionStatus(     //IOCP 핸들에서 대기중인 I/O 작업의 결과를 검색
   HANDLE       CompletionPort,             //IOCP 핸들
