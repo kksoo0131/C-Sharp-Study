@@ -24,7 +24,7 @@ void AccpeterThread()
     }
     
     // IOCP핸들과 클라이언트 소켓을 연결?
-    bool bRet = BindIOCompletionPort(pClientInfo);
+    bool bRet = BindSocket(pClientInfo);
     if(false == bRet)
     {
       printf("핸들과 클라이언트 연결 실패");
