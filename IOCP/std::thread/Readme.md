@@ -14,11 +14,11 @@
 
 - 사용자 정의
 
-[BindSocket](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows/IOCP%20%ED%95%B8%EB%93%A4%20%EB%B0%94%EC%9D%B8%EB%93%9C.cpp)
+[BindSocket()](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows/IOCP%20%ED%95%B8%EB%93%A4%20%EB%B0%94%EC%9D%B8%EB%93%9C.cpp)
 
-[GetEmptyClientInfo]()
+[GetEmptyClientInfo()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EB%B9%84%EC%96%B4%EC%9E%88%EB%8A%94%20%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8%20%EC%86%8C%EC%BC%93%20%EB%B0%98%ED%99%98.cpp)
 
-[BindRecv]()
+[BindRecv()]()
 
 
 
