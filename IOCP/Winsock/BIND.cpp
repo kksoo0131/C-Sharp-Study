@@ -1,3 +1,5 @@
+int bind(SOCKET s, const struct sockaddr* name, int namelen);
+
 bool Bind(){
   int result = bind(_listenSocket, (SOCKADDR*)&_serverAddr, sizeof(SOCKADDR_IN));
   
