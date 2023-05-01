@@ -7,7 +7,7 @@
 
 - 라이브러리
 
-[accept()]([accept()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/accept().cpp))
+[accept()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/accept().cpp)
 
 [GetQueuedCompletionStatus()](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows/GetQueuedCompletionStatus().cpp)
 
