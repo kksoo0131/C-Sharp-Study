@@ -1,9 +1,4 @@
-bool Bind(int BindPort){
-  SOCKADDR_IN _serverAddr;
-  _serverAddr.sin_family = AF_INET;
-  _serverAddr.sin_port = htons(BindPort);
-  _serverAddr.sin_addr.s_addr = htonl(INADDR_ANY);
- 
+bool Bind(){
   int result = bind(_listenSocket, (SOCKADDR*)&_serverAddr, sizeof(SOCKADDR_IN));
   
   if (result != 0){
