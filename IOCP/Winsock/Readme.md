@@ -19,3 +19,5 @@
 [BindRecv()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/BindRecv().cpp)
 
 [SendMsg()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/SendMsg().cpp)
+
+[소켓 연결 해제](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/%EC%86%8C%EC%BC%93%20%EC%97%B0%EA%B2%B0%20%ED%95%B4%EC%A0%9C.cpp)
