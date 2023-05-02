@@ -17,6 +17,8 @@
 [accept()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/accept().cpp)
 
 [BindRecv()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/BindRecv().cpp)
+
+[SendMsg()](https://github.com/kksoo0131/Study/blob/main/IOCP/Winsock/SendMsg().cpp)
 ```cpp
 
 int WSASend(                                              // 비동기 IO send
