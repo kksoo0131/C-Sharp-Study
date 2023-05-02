@@ -24,7 +24,7 @@
 [CloseHandle()](https://github.com/kksoo0131/Study/blob/main/IOCP/Windows/CloseHandle().cpp)
 
 
-[std::thread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread.md) - [CreateThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/%EC%9B%8C%EC%BB%A4%20%EC%8A%A4%EB%A0%88%EB%93%9C%20%EC%83%9D%EC%84%B1.cpp), [WorkerThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/WorkerThread.cpp), [AccepterThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/AccpterThread.cpp), [스레드 파괴](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/%EC%8A%A4%EB%A0%88%EB%93%9C%20%ED%8C%8C%EA%B4%B4.cpp)
+[std::thread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread.md) - [CreateThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/%EC%8A%A4%EB%A0%88%EB%93%9C%20%EC%83%9D%EC%84%B1.cpp), [WorkerThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/WorkerThread.cpp), [AccepterThread](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/AccpterThread.cpp), [스레드 파괴](https://github.com/kksoo0131/Study/blob/main/IOCP/std::thread/%EC%8A%A4%EB%A0%88%EB%93%9C%20%ED%8C%8C%EA%B4%B4.cpp)
 
 
 
