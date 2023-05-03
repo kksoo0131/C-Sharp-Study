@@ -23,10 +23,10 @@ int main() {
 	check.resize(N+1, true);
 
 	for (int i = 1; i <= M; i++) {
-		int temp[2];
-		cin >> temp[0] >> temp[1];
-		vec[temp[0]].insert(temp[1]);
-		vec[temp[1]].insert(temp[0]);
+		int start, end;
+		cin >> start >> end;
+		vec[start].insert(end);
+		vec[end].insert(start);
 	}
 
 	for (int i = 1; i <= N; i++) {
