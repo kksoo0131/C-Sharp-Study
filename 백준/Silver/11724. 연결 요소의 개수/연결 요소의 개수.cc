@@ -1,32 +1,29 @@
 #include <iostream>
-#include <set>
 #include <vector>
 using namespace std;
 
 
 int N, M, answer = 0;
-vector<set<int>> vec;
-vector<bool> check;
+vector<int> vec[1001];//아 벡터 배열;;;;
+vector<bool> check(1001,true);
 
-void DFS(int i) {
-	if (check[i]) {
-		check[i] = false;
-		for (int i : vec[i]) {
-			DFS(i);
+void DFS(int N) {
+	
+		check[N] = false;
+		for (int i : vec[N]) {
+			if (check[i]) { DFS(i); }		
 		}
-	}
+	
 }
 
 int main() {
 	cin >> N >> M;
-	vec.resize(N+1);
-	check.resize(N+1, true);
 
 	for (int i = 1; i <= M; i++) {
 		int start, end;
 		cin >> start >> end;
-		vec[start].insert(end);
-		vec[end].insert(start);
+		vec[start].push_back(end);
+		vec[end].push_back(start);
 	}
 
 	for (int i = 1; i <= N; i++) {
