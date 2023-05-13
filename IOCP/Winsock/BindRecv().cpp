@@ -15,7 +15,7 @@ bool BindRecv(ClientInfo* pClientInfo)
   DWORD dwRecvNumByttes = 0;
   
   pClientInfo->_recvOverlappedEx._wsaBuf.len = MAX_SOCKBUF;
-  pClientInfo->_recvOverlappedEx._wsaBuf.buf = pClientInfo-> _recvOverlappedEx._szbuf;
+  pClientInfo->_recvOverlappedEx._wsaBuf.buf = pClientInfo->_recvBuf;
   pClientInfo->_recvOverlappedEx._eOperation = IOOperation::RECV;
   
   int nRet = WSARecv(pClientInfo-> _socketClient,
