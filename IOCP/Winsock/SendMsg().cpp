@@ -14,10 +14,10 @@ bool SendMsg(ClientInfo* pClientInfo, char* pMsg, int nLen)
   DWORD dwRecvNumBytes = 0;
   
   // 전송될 메세지를 복사
-  CopyMemory(pClientInfo->_sendOverlappedEx._szBuf, pMsg, nLen);
+  CopyMemory(pClientInfo->_sendBuf, pMsg, nLen);
   
   pClientInfo->_sendOverlappedEx._wsaBuf.len = nLen;
-  pClientInfo->_sendOverlappedEx._wsaBuf.buf = pClientInfo->_sendOverlappedEx._szBuf;
+  pClientInfo->_sendOverlappedEx._wsaBuf.buf = pClientInfo->pClientInfo->_sendBuf;
   pClientInfo->_sendOverlappedEx._eOperation = IOOperation::SEND;
   
   int nRet = WSASend(pClientInfo->_socketClient,
