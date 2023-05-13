@@ -61,17 +61,17 @@ void WorkerThread()
     // Recv작업의 결과라면
     if (IOOperation :: RECV == pOverlappedEx->_eOperation)
     {
-        pOverlappedEx-> _szBuf[dwIoSize] = NULL; // 버퍼의 마지막에 널문자를 추가. (c문자열 출력을 위함)
-        printf("[RECV] bytes : %d , msg : %s\n", dwIoSize, pOverlappedEx->_szBuf); // 수신받은 데이터 출력
+        pClientInfo->_recvBuf[dwIoSize] = NULL; // 버퍼의 마지막에 널문자를 추가. (c문자열 출력을 위함)
+        printf("[RECV] bytes : %d , msg : %s\n", dwIoSize, pClientInfo->_recvBuf); // 수신받은 데이터 출력
       
         // 클라이언트에 메세지르 에코.(그대로 돌려보냄)
-        SendMsg(pClientInfo, pOverlappedEx-> _szBuf, dwIoSize);
+        SendMsg(pClientInfo, pClientInfo->_sendBuf, dwIoSize);
         BindRecv(pClientInfo);
     }
     // Send 작업의 결과라면
     else if (IOOperation::Send == pOverlappedEx -> _eOperation)
     {
-        printf("[SEND] bytes : %d, msg: %s \n", dwIoSize, pOverlappedEx->_szBuf);
+        printf("[SEND] bytes : %d, msg: %s \n", dwIoSize, pClientInfo->_sendBuf);
     }
     else
     {
