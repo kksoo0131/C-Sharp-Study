@@ -57,8 +57,6 @@ void Cave(pair<int,int> pos) {
 		}		
 	}
 }
-
-// 최단거리중 최소인것을 찾아서 다음으로 넘어간다.
 pair<int,int> SelectShortDist() {
 	int minDist = MAX_VALUE;
 	pair<int, int> minPos = { -1,-1 };
@@ -77,6 +75,8 @@ pair<int,int> SelectShortDist() {
 }
 
 int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0), cout.tie(0);
 	int answerNumber = 1;
 	while (true) {
 		cin >> N;
