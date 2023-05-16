@@ -8,49 +8,47 @@
 
 #include <iostream>
 #include <vector>
-
 using namespace std;
-void merge(vector<int>& arr, int left,int mid,int right) {
-	vector<int> tmp(right - left + 1);
-	int tmp_left = left, tmp_right = mid + 1, k = 0;
 
-	// 정렬된 두배열을 앞에서 부터 비교하면서 정렬을 유지하며 합친다.
-	while (tmp_left <= mid && tmp_right <= right) {
-		if (arr[tmp_left] <= arr[tmp_right])
-			tmp[k++] = arr[tmp_left++];
-		else
-			tmp[k++] = arr[tmp_right++];
+void mergeSort(vector<int>& arr, int start,int end) {
+
+	if (start < end) {
+		int mid = (start + end) / 2;
+		mergeSort(arr, start, mid);
+		mergeSort(arr, mid + 1, end);
+
+
+		int left = start;
+		int right = mid+1;
+		vector<int> temp;
+
+		while (left <= mid && right <= end) {
+			if (arr[left] <= arr[right]) {
+				temp.push_back(arr[left++]);
+			}
+			else {
+				temp.push_back(arr[right++]);
+			}
+		}
+
+		while (left <= mid) {
+			temp.push_back(arr[left++]);
+		}
+
+		while (right <= end) {
+			temp.push_back(arr[right++]);
+		}
+
+		for (int i = 0; i < temp.size(); i++) {
+			arr[i + start] = temp[i];
+		}
 	}
-
-	// 남은 한쪽배열을 다 추가해준다.
-
-	while (tmp_left <= mid)
-		tmp[k++] = arr[tmp_left++];
-
-	while (tmp_right <= right)
-		tmp[k++] = arr[tmp_right++];
-
-	// tmp에 합쳐진 배열을 arr에 복사해준다.
-	for (int i = left; i <= right; i++) {
-		arr[i] = tmp[i - left];
-	}
+	
 }
-void mergeSort(vector<int>& arr, int left, int right) {
-
-	if (left < right) {
-		int mid = (left + right) / 2;
-
-		mergeSort(arr, left, mid);
-		mergeSort(arr, mid + 1, right);
-
-		merge(arr, left, mid, right);
-	}
-	 
-}
-
 int main() {
-	vector<int> arr = { 2,5,1,7,3,8,6,4,9 };
-	mergeSort(arr, 0, arr.size() - 1);
+	vector<int> arr = {9,8,7,6,5,4,3,2,1,0};
+
+	mergeSort(arr, 0,9);
 
 	for (int i : arr) {
 		cout << i << " ";
