@@ -1,7 +1,7 @@
 // 0 ~ N-1 칸까지 최소비용으로 이동하는 문제
 
 #include <iostream>
-#include <deque>
+#include <queue>
 using namespace std;
 
 int N;
@@ -40,39 +40,6 @@ void Input(int N) {
 		}
 	}
 }
-void Cave(pair<int,int> pos) {
-	int y = pos.first;
-	int x = pos.second;
-	visited[y][x] = true;
-
-	for (int i = 0; i < 4; i++) {
-		int ny = y + dy[i], nx = x + dx[i];
-
-		if (ny < 0 || ny >= N || nx < 0 || nx >= N)
-			continue;
-
-		if (!visited[ny][nx]) {
-			if (dist[ny][nx] > dist[y][x] + arr[ny][nx])
-				dist[ny][nx] = dist[y][x] + arr[ny][nx];
-		}		
-	}
-}
-pair<int,int> SelectShortDist() {
-	int minDist = MAX_VALUE;
-	pair<int, int> minPos = { -1,-1 };
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			if (!visited[i][j] && dist[i][j] != MAX_VALUE) {
-				if (minDist > dist[i][j]) {
-					minDist = dist[i][j];
-					minPos = { i,j };
-				}
-			}
-		}
-	}
-
-	return minPos;
-}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -84,18 +51,32 @@ int main() {
 			break;
 		Input(N);
 
+		priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 		dist[0][0] = arr[0][0];
-		Cave({ 0, 0 });
+		pq.push({ dist[0][0],0 });
 
-		while (true) {
-			pair<int, int> nextPos = SelectShortDist();
+		while (!pq.empty()) {
+			
+			int curDist = pq.top().first;
+			int curY = pq.top().second / N;
+			int curX = pq.top().second % N;
+			pq.pop();
 
-			if (nextPos.first == -1) {
-				break;
-			}
+			visited[curY][curX] = true;
 
-			Cave(nextPos);
+			for (int i = 0; i < 4; i++) {
+				int ny = curY + dy[i], nx = curX + dx[i];
+
+				if (ny < 0 || ny >= N || nx < 0 || nx >= N)
+					continue;
+
+				if (!visited[ny][nx] && dist[ny][nx] > curDist + arr[ny][nx]) {
+					dist[ny][nx] = curDist + arr[ny][nx];
+					pq.push({ dist[ny][nx], ny * N + nx });
+				}
+			}	
 		}
+
 		cout << "Problem " << answerNumber++ << ": " <<dist[N-1][N-1] << '\n';
 		Clear();
 		
