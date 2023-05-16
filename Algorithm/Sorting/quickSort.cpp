@@ -12,55 +12,46 @@
 // 최선의 경우 O(nlog2n)의 시간복잡도를 가진다.
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int partition(int (&arr)[], int left, int right) {
-	// left,right로 배열이 분할되어있다.
-	int pivot = arr[left];
-	int tmp_left = left, tmp_right = right;
+void quickSort(vector<int>& arr, int start, int end) {
+	
+	if (start >= end) return;
 
-	// 왼쪽 오른쪽이 교차될때까지 반복
-	while (tmp_left < tmp_right) {
-		// 오른쪽에서 pivot보다 작은값의 인덱스
-		while (pivot < arr[tmp_right]) {
-			tmp_right--;
-		}
-		// 왼쪽에서 pivot 보다 큰값의 인덱스
-		while (tmp_left < tmp_right && pivot >= arr[tmp_left]) {
-			tmp_left++;
-		}
+	int pivot = arr[start]; // 일단은 가장 왼쪽을 피벗으로 지정
+	int left = start; // 왼쪽 인덱스
+	int right = end; // 오른쪽 인덱스
 
-		// 오른쪽에서 pviot보다 작은값과 왼쪽에서 pivot보다 큰값을 교환
-		swap(arr[tmp_left], arr[tmp_right]);
+	while (left < right) { // 피벗의 자리를 찾을때까지 반복
+
+		//피벗의 오른쪽에는 피벗보다 큰수만
+		//피벗의 왼쪽에는 피벗보다 작은수만 모이게된다.
+
+		while (pivot < arr[right]) { right--; }// 오른쪽에서 피벗보다 작은걸 찾는다.
+
+		while (left < right && pivot >= arr[left]) { left++; }// 왼쪽에서 피벗보다 큰걸 찾는다.
+
+		swap(arr[right], arr[left]); // 둘의 자리를 교환
 	}
-	// 오른쪽 왼쪽이 교차되는 지점과 pivot을 교환
-	arr[left] = arr[tmp_left];
-	arr[tmp_left] = pivot;
+	// left == right일것이고
+	// 이 인덱스는 처음에 정한 pivot의 자리일것이다.
 
-	return tmp_left;
+	arr[start] = arr[left];
+	arr[left] = pivot;
+	pivot = left;
+	// 피벗에 인덱스를 넣어주고 피벗을 기준으로 배열을 나누어서 계속 정렬한다.
+
+	quickSort(arr, start, pivot - 1);
+	quickSort(arr, pivot + 1, end);
+	
+
+
 }
-
-
-void quickSort(int (&arr)[], int left, int right) {
-	// 왼쪽 오른쪽이 교차될때까지 재귀
-	if (left >= right) return;
-
-	for (int i = 0; i < 9; i++) {
-		cout << arr[i] << " ";
-	}
-	cout << '\n';
-
-	// 피벗이 들어갈 자리를 찾아주고
-	int pivot = partition(arr, left, right);
-
-	quickSort(arr, left, pivot - 1);
-	quickSort(arr, pivot + 1, right);
-}
-
 int main() {
-	int arr[9] = { 5,4, 9, 8, 1, 2, 6, 7, 0 };
+	vector<int> arr = {9,8,7,6,5,4,3,2,1,0};
 
-	quickSort(arr, 0, 8);
+	quickSort(arr, 0, 9);
 
 	for (int i : arr) {
 		cout << i << " ";
