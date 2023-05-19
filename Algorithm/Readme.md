@@ -12,7 +12,7 @@
 
 [DP](https://github.com/kksoo0131/Study/blob/main/Algorithm/%EB%8F%99%EC%A0%81%20%EA%B3%84%ED%9A%8D%EB%B2%95(DP).md)
 
-[다익스트라](https://github.com/kksoo0131/Study/blob/main/Algorithm/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC(Dijkstra).md)
+[다익스트라 (BFS+ DP + 우선순위 큐](https://github.com/kksoo0131/Study/blob/main/Algorithm/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC(Dijkstra).md)
 
 ## 분할 정복
 
