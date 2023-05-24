@@ -1,55 +1,80 @@
+//그래프를 입력 받아서
+//DFS와 BFS로 출력해라
+
 #include <iostream>
-#include <vector>
 #include <deque>
-#include <set>
+#include <algorithm>
 
 using namespace std;
 
-vector<set<int>> arr(1001);
-vector<bool> check(1001, true);
-vector<bool> check2(1001, true);
+int N, M, V;
 
-void DFS(int V) {
-	if (check[V]) {
-		cout << V << " ";
-		check[V] = false;
-		for (int i : arr[V]) {
-			DFS(i);
-		}
+deque<int>* arr;
+int* visited;
+
+void DFS(int n) {
+	
+	visited[n] = 1;
+	cout << n << " ";
+
+	for (int i = 0; i < arr[n].size(); i++) {
+		int temp = arr[n][i];
+
+		if (visited[temp] == 0)
+			DFS(temp);
+		
 	}
 }
 
-void BFS(int V) {
+void BFS(int n) {
 	deque<int> dq;
-	dq.push_back(V);
+	dq.push_back(n);
+	visited[n] = 1;
 
 	while (!dq.empty()) {
-		int temp = dq.front();
+		int index = dq.front();
 		dq.pop_front();
 
-		if (check2[temp]) {
-			cout << temp << " ";
-			check2[temp] = false;
-			for (int i : arr[temp]) {
-				dq.push_back(i);
+		cout << index << " ";
+
+		for (int i = 0; i < arr[index].size(); i++) {
+			int temp = arr[index][i];
+
+			if (visited[temp] == 0) {
+				dq.push_back(temp);
+				visited[temp] = 1;
 			}
 		}
+
+
 	}
 }
-
-
 int main() {
-	int N, M, V;
+
 	cin >> N >> M >> V;
 
+	arr = new deque<int>[N+1];
+
 	for (int i = 0; i < M; i++) {
-		int temp[2];
-		cin >> temp[0] >> temp[1];
-		arr[temp[0]].insert(temp[1]);
-		arr[temp[1]].insert(temp[0]);
+		int index, value;
+		cin >> index >> value;
+		arr[index].push_back(value);
+		arr[value].push_back(index);
 	}
 
+	for (int i = 0; i < N + 1; i++) {
+		sort(arr[i].begin(), arr[i].end());
+	}
+
+	visited = new int[N+1];
+	fill(visited, visited + N+1, 0);
 	DFS(V);
-	cout << "\n";
+
+	cout << '\n';
+
+	delete[] visited;
+	visited = new int[N + 1];
+	fill(visited, visited + N + 1, 0);
 	BFS(V);
+
 }
