@@ -1,35 +1,40 @@
+//피보나치 함수의 0과 1이 몇번 호출되는지 갯수를 세서 출력해라
+
 #include <iostream>
-#include <vector>
+#include <deque>
 using namespace std;
 
-struct fibodata {
-	int value;
-	int zero;
-	int one;
-	fibodata(int v, int z, int o) : value(v), zero(z), one(o) {};
-};
-vector<fibodata> fiboN(41, fibodata(-1,0,0));
+pair<int,int> dp[41];
 
-// 0과 1을 출력해야되니까
-int fibo(int n) {
-	if (fiboN[n].value == -1) {
+pair<int, int> fibo(int n) {
 
-		fiboN[n].value = fibo(n - 1) + fibo(n - 2);
-		fiboN[n].zero = fiboN[n - 1].zero + fiboN[n - 2].zero;
-		fiboN[n].one = fiboN[n - 1].one + fiboN[n - 2].one;
+	if (n == 0) {
+		return { 1,0 };
 	}
-	return fiboN[n].value;
-}
+	else if (n == 1) {
+		return { 0,1 };
+	}
+	
+	
+	if (dp[n].first == 0 && dp[n].second ==0) {
+		pair<int, int> temp1 = fibo(n - 1);
+		pair<int, int> temp2 = fibo(n - 2);
 
+		dp[n].first = temp1.first + temp2.first;
+		dp[n].second = temp1.second + temp2.second;
+	}
+	
+	return {dp[n].first, dp[n].second};
+
+}
 int main() {
-	int T;
+	int T, N;
 	cin >> T;
-	fiboN[0] = fibodata(0, 1, 0);
-	fiboN[1] = fibodata(1, 0, 1);
+
 	while (T--) {
-		int num;
-		cin >> num;
-		fibo(num);
-		cout << fiboN[num].zero << " " << fiboN[num].one <<'\n';
+		cin >> N;
+
+		pair<int,int> answer = fibo(N);
+		cout << answer.first << " " << answer.second << '\n';
 	}
 }
