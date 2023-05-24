@@ -53,6 +53,7 @@ int main() {
 
 	cin >> N >> M >> V;
 
+	// 정점은 1~N 까지이기때문에 배열을 N+1로 선언
 	arr = new deque<int>[N+1];
 
 	for (int i = 0; i < M; i++) {
