@@ -24,3 +24,20 @@ std 네임스페이스 : unique_ptr, shared_ptr, weak_ptr
 
 # unique_ptr
 특정 객체를 하나의 스마트 포인터만이 가리킬 수 있게한다.
+
+```cpp
+#include <iostream>
+int main(){
+  std::unique_ptr<int> ptr1(new int(5));
+  auto ptr2 = std::make_unique<int>(10);
+
+  // 특정 객체를 하나의 스마트 포인터만이 가리킬수 있기 때문에 복사 생성자를 가지지 않고 
+  // auto ptr3 = ptr1; 와 같은 대입 형태는 지원하지 않는다.
+
+  auto ptr3 = move(ptr1);
+  //move() 함수를 통해서 특정 객체의 소유권을 이전할 수 있다.
+  //이경우 이전한 유니크 포인터는 아무것도 가리키는 것이 없고 소멸한 포인터로 취급된다.
+
+  // make_unique() 함수를 통해서는 배열 형태의 유니크 포인터를 초기화 할수 없다. ( 배열이 생성되기는 한다.) 
+}
+```
