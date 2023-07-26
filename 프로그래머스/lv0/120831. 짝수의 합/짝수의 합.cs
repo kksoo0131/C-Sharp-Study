@@ -4,10 +4,15 @@ public class Solution {
     public int solution(int n) {
         int answer = 0;
         
-        for (int i =0; i<= n; i++){
-            if(i % 2 ==0) answer += i;
+        if (n % 2 == 1){
+            n -= 1;
         }
-         
+        
+        while (n != 0){
+            answer += n;
+            n -= 2;
+        }
+        
         return answer;
     }
 }
