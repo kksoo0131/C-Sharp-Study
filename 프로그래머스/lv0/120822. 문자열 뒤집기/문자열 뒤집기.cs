@@ -10,11 +10,7 @@ public class Solution {
         {
 			stack.Push(c);
         }
-        
-        while(stack.Count != 0){
-            answer += stack.Pop();
-        }
 
-        return answer;
+        return new string(stack.ToArray());
     }
 }
