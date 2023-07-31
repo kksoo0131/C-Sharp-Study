@@ -1,10 +1,13 @@
 using System;
-using System.Linq;
-
+using System.Collections.Generic;
 
 public class Solution {
     public int[] solution(string[] strlist) {
+        Queue<int> answer = new Queue<int>();
         
-        return strlist.Select(x => x.Length).ToArray();
+        foreach(string str in strlist){
+            answer.Enqueue(str.Length);
+        }
+        return answer.ToArray();
     }
 }
