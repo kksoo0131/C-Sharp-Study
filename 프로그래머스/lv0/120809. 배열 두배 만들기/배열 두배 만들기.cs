@@ -1,8 +1,13 @@
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 public class Solution {
-    public int[] solution(int[] numbers) {
-        int[] answer = numbers.Select(x => x * 2).ToArray(); return answer;
+    public Queue<int> solution(int[] numbers) {
+        Queue<int> answer = new Queue<int>();
+        
+        foreach(int n in numbers){
+            answer.Enqueue(n*2);
+        }
+        return answer;
     }
 }
