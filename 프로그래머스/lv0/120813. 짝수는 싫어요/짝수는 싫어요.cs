@@ -1,8 +1,14 @@
 using System;
-using System.Linq;
+using System.Collections.Generic;
 
 public class Solution {
     public int[] solution(int n) {
-        return Enumerable.Range(1,n).Where(x => x %2 ==1).ToArray();
+        Queue<int> answer = new Queue<int>();
+        
+        for (int i = 1; i<= n ; i+=2 ){
+            answer.Enqueue(i);
+        }
+        
+        return answer.ToArray();
     }
 }
