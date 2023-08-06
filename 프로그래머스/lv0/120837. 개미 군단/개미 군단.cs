@@ -2,7 +2,6 @@ using System;
 
 public class Solution {
     public int solution(int hp) {
-        int answer = 0;
-        return answer;
+        return (hp / 5) + (hp % 5 / 3) + (hp % 5 % 3);
     }
 }
