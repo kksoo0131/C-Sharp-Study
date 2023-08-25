@@ -2,21 +2,27 @@ using System;
 
 public class Solution {
     public string solution(string[] cards1, string[] cards2, string[] goal) {
-        int c1count = 0;
-        int c2count = 0;
-
-        foreach (string word in goal)
+        // 목표단어를 만들수 있는가?
+        // 각 cards뭉치 내의 카드의 순서를 지켜야된다.
+        // cards에는 중복이없음
+        int cards1Index = 0;
+        int cards2Index = 0;
+        
+        foreach(string s in goal)
         {
-            if (c1count < cards1.Length && cards1[c1count] == word)
+            if(cards1Index < cards1.Length && cards1[cards1Index] == s)
             {
-                c1count += 1;
+                cards1Index++;
             }
-            else if (c2count < cards2.Length &&cards2[c2count] == word)
+            else if(cards2Index < cards2.Length && cards2[cards2Index] ==s)
             {
-                c2count += 1;
+                cards2Index++;    
             }
-            else        
+            else
+            {
                 return "No";
+            }    
+            
         }
         return "Yes";
     }
