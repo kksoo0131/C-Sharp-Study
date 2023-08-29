@@ -52,6 +52,8 @@ public class Solution {
                 // 중간 어딘가.
                  min = Math.Min(temp[0].Length+1, min);
             }
+            
+            // temp.Length가 1일때만 아래 조건을 처리해야되서 if문 순서 중요
             else if (key.Substring(0, key.Length-1) == temp[0])
             {
                 // 제일 마지막 키일 때
