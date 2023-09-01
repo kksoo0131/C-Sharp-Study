@@ -1,82 +1,76 @@
 using System;
+using System.Collections.Generic;
 
-public class Solution {
-    int H;
-    int W;
-    string[] park;
-    
-    public int[] solution(string[] park, string[] routes) {
-        int[] answer = new int[] {0,0};
-        this.park = park;
-        H = park.Length;
-        W = park[0].Length;
+public class Solution 
+{
+    public int[] solution(string[] park, string[] routes) 
+    {
+        int[] start = new int[2];
+        Dictionary<string, int[]> dirDic = new Dictionary<string, int[]>();
         
-        // 시작지점 찾기
-        foreach (string p in park){
-            if (p.Contains("S"))
+        dirDic.Add("N", new int[]{-1,0});
+        dirDic.Add("S", new int[]{1,0});
+        dirDic.Add("W", new int[]{0,-1});
+        dirDic.Add("E", new int[]{0,1});
+
+        
+        for (int i =0; i<park.Length; i++)
+        {
+            for (int j = 0; j < park[i].Length ; j++)
             {
-                answer[0] = Array.IndexOf(park, p);
-                answer[1] = Array.IndexOf(p.ToCharArray(), 'S');    
+                if(park[i][j] == 'S'){
+                    start[0]= i;
+                    start[1]= j;
+                }
+            }    
+        }
+
+        
+        foreach(string route in routes)
+        {
+            int[] dir = dirDic[route.Substring(0,1)];
+            int move = int.Parse(route.Substring(2,1));
+            bool isMove = true;
+            int[] temp = new int[2];
+            Array.Copy(start,temp,temp.Length);
+            
+            for(int i =0; i< move; i++)
+            {
+                int nextY = temp[0] + dir[0];
+                if ( nextY < 0 || nextY >= park.Length)
+                {
+                    isMove = false;
+                    // 0보다 크고 park.Length 보단 작아야함
+                }
+                
+                int nextX = temp[1] + dir[1];
+                if (nextX < 0 || nextX >= park[0].Length)
+                {
+                    isMove = false;
+                }
+                
+                if (isMove)
+                {
+                    if (park[nextY][nextX] == 'X'){
+                        isMove = false;
+                    }
+                }
+                
+                temp[0]= nextY;
+                temp[1]= nextX;
+                
             }
             
+            if (isMove)
+            {
+                start = temp;       
+            }
+
+            //주어진방향으로 이동하는 도중에 장애물이 있는지
+            //끝까지 이동할때 공원을 벗어나는지 확인
         }
         
-        
-        foreach(string route in routes){
-            Console.Write(answer[0]+","+answer[1]+"  ");
-            answer = CheckDirection(route, answer);
-            Console.WriteLine(answer[0]+","+answer[1]);
-        }
-        
-        return answer;
-    }
-    
-    // 갈수 있는지 체크
-    int[] CheckDirection(string route, int[] position){
-        string direction = route.Substring(0,1);
-        int move = int.Parse(route.Substring(2,1));
-        int[] vec = new int[]{0,0};
-        int[] t_pos = new int[]{position[0], position[1]};
-        
-        switch(direction){
-            case "N":
-                for (int i =0; i < move; i++){
-                    if(t_pos[0] - 1 < 0 )
-                        return position;
-                    if(park[t_pos[0]-1][position[1]] == 'X')
-                        return position;
-                    t_pos[0]--;
-                }
-                break;
-            case "S":
-                for (int i =0; i < move; i++){
-                    if(t_pos[0] + 1 >= H )
-                        return position;
-                    if(park[t_pos[0]+1][position[1]] == 'X')
-                        return position;
-                    t_pos[0]++;
-                }
-                break;
-            case "W": 
-                for (int i =0; i < move; i++){
-                    if(t_pos[1] - 1 < 0 )
-                        return position;
-                    if(park[position[0]][t_pos[1]-1] == 'X')
-                        return position;
-                    t_pos[1]--;
-                }
-                break;
-            case "E":
-                for (int i =0; i < move; i++){   
-                    if(t_pos[1] + 1 >= W )
-                        return position;
-                    if(park[t_pos[0]][t_pos[1]+1] == 'X')
-                        return position;
-                    t_pos[1]++;
-                }
-                break;
-        }
-        return t_pos;
-        
+
+        return start;
     }
 }
