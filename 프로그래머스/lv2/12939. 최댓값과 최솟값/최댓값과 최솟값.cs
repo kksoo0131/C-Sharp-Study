@@ -1,9 +1,21 @@
 using System;
-using System.Linq;
 
-public class Solution {
-    public string solution(string s) {
-        int[] num = Array.ConvertAll(s.Split(" "), int.Parse);        
-        return $"{num.Min()} {num.Max()}";
+public class Solution 
+{
+    public string solution(string s) 
+    {
+        int max = int.MinValue;
+        int min = int.MaxValue;
+        
+        string[] intStringArray = s.Split(" ");
+        
+        foreach(string str in intStringArray)
+        {
+            int temp = int.Parse(str);
+            
+            max = Math.Max(max, temp);
+            min = Math.Min(min, temp);
+        }
+        return $"{min} {max}";
     }
 }
