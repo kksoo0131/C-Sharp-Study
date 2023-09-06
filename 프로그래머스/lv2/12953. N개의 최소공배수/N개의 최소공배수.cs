@@ -1,18 +1,30 @@
-public class Solution {
-    public int solution(int[] arr) {
-        int answer = arr[0];
+using System;
+
+public class Solution 
+{
+    // 최소공배수는
+    
+    // a * b / gcd(a,b) 임
+    
+    public int solution(int[] arr) 
+    {
+        int pivot = arr[0];
         
-        for (int i = 1; i < arr.Length; i++){
-            if (answer >= arr[i])
-                answer = answer * arr[i] / gcd(answer, arr[i]);
-            else 
-                answer = answer * arr[i] / gcd(arr[i], answer);
+        foreach(int i in arr)
+        {
+            int max = Math.Max(pivot, i);
+            int min = Math.Min(pivot, i);
+            
+            pivot = max * min / gcd(max,min);
         }
-        return answer;
+        
+        return pivot;
     }
-    int gcd (int a, int b){
-        if (b == 0)
-            return a;
-        return gcd(b, a % b);
+    
+    public int gcd(int a,int b)
+    {
+        int r = a % b;
+        
+        return r == 0 ? b : gcd(b,r);        
     }
 }
