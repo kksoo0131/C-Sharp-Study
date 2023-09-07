@@ -13,7 +13,7 @@ public class Solution {
     
     // 만약 citations 배열의 길이가
     
-    // 요소의 최솟값보다 짧다면 citations의 길이가 answer가 된다.
+    // 요소의 최솟값보다 짧다면 citations의 길이가 answer가 된다. -> break추가
     
     public int solution(int[] citations) 
     {
@@ -34,7 +34,8 @@ public class Solution {
             }
             else
             {
-                answer =  Math.Max(answer, citations.Length -i);
+                answer = citations.Length -i;
+                break;
             }
         }
         
