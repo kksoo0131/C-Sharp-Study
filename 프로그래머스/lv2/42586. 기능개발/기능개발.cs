@@ -1,42 +1,53 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 
 public class Solution {
-    public int[] solution(int[] progresses, int[] speeds) {
-        List<int> answer = new List<int>();
-        int date =1;
-        int release =0;
-        Queue<int[]> queue = new Queue<int[]>();
+    // 턴 마다  progresses에 speed를 더해준다.
+    // 앞에서 부터 배포가 가능한지 확인해서 배포한다.
+    // 배포했다면 배포한 갯수를 answer에 저장한다.
+    
+    int[] progresses;
+    int[] speeds;
+    int index;
+    List<int> answer = new List<int>();
+    
+    public int[] solution(int[] progresses, int[] speeds) 
+    {
+        this.progresses = progresses;
+        this.speeds = speeds;
+        index = 0;
         
-        for(int i=0; i < progresses.Length; i++){
-            queue.Enqueue(new int[]{progresses[i], speeds[i]});
-        }
-                 
-        while(queue.Count > 0)
+        while (index < progresses.Length)
         {
-            int[] temp = queue.Peek();
-            
-            if (temp[0] + temp[1] * date < 100){
-                date++;
-                continue;
-            }
-                
-            
-            answer.Add(0);
-            while(temp[0] + temp[1] * date >= 100)
-            { 
-                answer[release] +=1;
-                queue.Dequeue();
-                if (queue.Count == 0)
-                    break;
-                temp = queue.Peek();
-            }
-            
-            release++;
-            
+            OneDateLater();
+            Publish();
+        }
+
+        return answer.ToArray();
+    }
+    
+    public void OneDateLater()
+    {
+        for(int i =index; i< progresses.Length; i++)
+        {
+            progresses[i] += speeds[i];
+        }
+    }
+    
+    public void Publish()
+    {
+        int completed = 0;
+        
+        while(index < progresses.Length &&  progresses[index] >= 100)
+        {
+            completed++;
+            index++;
         }
         
-        return answer.ToArray();
+        if(completed > 0)
+        {
+            answer.Add(completed);    
+        }
+    
     }
 }
