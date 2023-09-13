@@ -1,25 +1,35 @@
 using System;
+using System.Collections.Generic;
 
 public class Solution {
-    public int[] numbers; 
-    public int target;
     
-    public int solution(int[] numbers, int target) {
-        this.numbers = numbers;
-        this.target = target;
-       
-        return  DFS (0,0);
-    }
+    // numbers를 순회하면서
     
-    public int DFS(int start, int sum){
+    // resultQueue에 더하거나 뺀값을 저장한다.
+    public int solution(int[] numbers, int target) 
+    {
+        int answer =0;
+        Queue<int> resultQueue = new Queue<int>();
+        resultQueue.Enqueue(0);
         
-        if (start == numbers.Length){
-            if(sum == target)
-                return 1;
-            return 0;
+        foreach(int number in numbers)
+        {
+            int count = resultQueue.Count;
+            
+            for(int i =0; i<count; i++)
+            {
+                int result = resultQueue.Dequeue();
+                resultQueue.Enqueue(result - number);
+                resultQueue.Enqueue(result + number);
+            }
+
         }
-        else
-            return DFS(start +1, sum + numbers[start]) + DFS(start +1, sum - numbers[start]);
-                
+        
+        foreach(int i in resultQueue)
+        {
+            answer += i == target ? 1 : 0;
+        }
+        
+        return answer;
     }
 }
