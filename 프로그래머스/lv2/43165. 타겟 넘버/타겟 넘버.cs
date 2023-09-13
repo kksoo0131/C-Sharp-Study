@@ -6,6 +6,8 @@ public class Solution {
     // numbers를 순회하면서
     
     // resultQueue에 더하거나 뺀값을 저장한다.
+    
+    // BFS
     public int solution(int[] numbers, int target) 
     {
         int answer =0;
